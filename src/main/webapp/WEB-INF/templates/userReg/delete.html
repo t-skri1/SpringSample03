@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <head th:insert="fragment/frag01 :: htmlhead"></head>
+    <title>ユーザー削除画面</title>
+</head>
+<body>
+    <h1>ユーザー削除</h1>
+
+    <form method="post" action="#" th:action="@{delete}" th:object="${authForm}">
+        <div>
+            <label for="userId">ログインID</label>
+            <span th:text="*{userId}"></span>
+            <input type="hidden" th:field="*{userId}">
+        </div>
+
+        <div>
+            <label for="userNameJP">ユーザー名（日本語）</label>
+            <span th:text="*{userNameJP}"></span>
+            <input type="hidden" th:field="*{userNameJP}">
+        </div>
+
+        <div>
+            <button type="submit">削除</button>
+            &nbsp;&nbsp;&nbsp;
+            <a th:href="@{/userReg/index}">キャンセル</a>
+        </div>
+    </form>
+
+</body>
+</html>

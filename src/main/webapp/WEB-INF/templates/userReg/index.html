@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <head th:insert="fragment/frag01 :: htmlhead"></head>
+    <title>登録ユーザー一覧画面</title>
+</head>
+
+<body>
+    <h1>登録ユーザー一覧</h1>
+    <a href="insert.html" th:href="@{insert}">新規登録</a>
+    <div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ユーザーID</th>
+                    <th>ユーザー名</th>
+                    <th>部署名</th>
+                    <th>ステータス</th>
+                    <th>ロール</th>
+                    <th>コマンド</th>
+                </tr>
+            </thead>
+            <tr th:each="userInfo : ${userInfoList}" th:object="${userInfo}">
+                <td th:text="*{userId}"></td>
+                <td th:text="*{userNameJP}"></td>
+                <td th:text="*{sectionNameJP}"></td>
+                <td th:if="*{enabled}">使用可</td>
+                <td th:unless="*{enabled}">使用不可</td>
+                <td>
+                    <th:block th:each="userRoles : *{userRolesList}" th:object="${userRoles}">
+                        <th:block th:utext="*{authority} + '<br />'"></th:block>
+                    </th:block>
+                </td>
+                <td>
+                    <a th:href="@{*{userId} + '/update'}">編集</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{*{userId} + '/delete'}">削除</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

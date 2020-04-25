@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <head th:insert="fragment/frag01 :: htmlhead"></head>
+    <title>ユーザー登録メッセージ</title>
+</head>
+<body>
+    <h1><span th:text="${message}">メッセージ</span></h1>
+    <a th:href="@{index}">ユーザー一覧へ戻る</a>
+</body>
+</html>

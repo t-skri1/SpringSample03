@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org" th:with="lang=${#locale.language}" th:lang="${lang}"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <head th:insert="fragment/frag01 :: htmlhead"></head>
+    <title>Error page</title>
+</head>
+<body>
+    <div>
+        <h1>申し訳ございません。エラーが発生しました。</h1>
+    </div>
+</body>
+</html>

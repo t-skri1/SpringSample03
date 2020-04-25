@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spring5 MVC sqlSample01</title>
+</head>
+<body>
+    <h1>Hello Spring Products List</h1>
+    <table border="1">
+		<thead>
+			<tr>
+				<th>製品コード</th>
+				<th>製品名</th>
+				<th>単価</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="pm : ${productsMasterForm.pmList}" th:object="${pm}">
+		    	<td th:text="*{ProductsCode}"></td>
+		    	<td th:text="*{ProductsName}"></td>
+		        <td th:text="*{UnitPrice}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

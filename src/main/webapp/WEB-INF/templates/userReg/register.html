@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <div th:fragment="register" th:remove="tag">
+        <div>
+            <label for="password">パスワード</label>:
+            <input type="password" th:field="*{password}">
+            <em th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</em>
+        </div>
+
+        <div>
+            <label for="userNameJP">ユーザー名（日本語）</label>
+            <input type="text" th:field="*{userNameJP}">
+        </div>
+
+        <div>
+            <label for="userId">部署名（日本語）</label>
+            <input type="text" th:field="*{sectionNameJP}">
+        </div>
+
+        <div>
+            <label>
+                <input type="checkbox" id="enabled" th:field="*{enabled}">有効化
+            </label>
+        </div>
+
+        <div>
+            <label class="control-label col-sm-2">ロール</label>
+                <div th:each="item : ${checkItems}">
+                    <label>
+                        <input type="checkbox" name="authority" th:value="${item.value}" th:text="${item.key}" th:field="*{authority}">
+                    </label>
+                </div>
+            <span th:if="${#fields.hasErrors('authority')}" th:errors="*{authority}" class="help-block">error!</span>
+        </div>
+
+        <div>
+            <button type="submit">登録</button>
+            &nbsp;&nbsp;&nbsp;
+            <a th:href="@{/userReg/index}">キャンセル</a>
+        </div>
+    </div>
+</html>

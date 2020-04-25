@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <head th:insert="fragment/frag01 :: htmlhead"></head>
+    <title>管理者ID登録ページ</title>
+</head>
+<body>
+    <h1>管理者ID登録ページ</h1>
+
+    <form method="post" action="#" th:action="@{index}" th:object="${authForm}">
+        <div th:if="${signupDone}">
+            <em>登録しました。</em>
+        </div>
+
+        <div th:if="${signupError}">
+            <em>登録出来ませんでした。</em>
+        </div>
+
+        <div>
+            <label for="userId">ログインID</label>:
+            <input type="text" autofocus="autofocus" th:field="*{userId}">
+        </div>
+
+        <div>
+            <label for="password">パスワード</label>:
+            <input type="password" th:field="*{password}">
+            <em th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</em>
+        </div>
+
+        <div>
+            <button type="submit">登録</button>
+        </div>
+    </form>
+</body>
+</html>
