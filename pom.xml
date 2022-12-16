@@ -10,7 +10,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>11</java.version>
-        <spring.version>5.2.4.RELEASE</spring.version>
+        <spring.version>5.2.20.RELEASE</spring.version>
         <spring-security.version>5.3.0.RELEASE</spring-security.version>
         <!-- web.xmlが無い場合でもビルドを実行する -->
         <failOnMissingWebXml>false</failOnMissingWebXml>
